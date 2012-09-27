@@ -1,0 +1,61 @@
+;This file was created by Graph (http://www.padowan.dk)
+;Do not change this file from other programs.
+[Graph]
+Version = 4.3.0.384
+MinVersion = 2.5
+OS = Windows NT 6.1 Service Pack 1
+
+[Axes]
+xMin = -20
+xMax = 20
+xTickUnit = 2
+xGridUnit = 2
+yMin = -3
+yMax = 3
+yTickUnit = 0.5
+yGridUnit = 0.5
+AxesColor = clBlue
+GridColor = 0x00FF9999
+ShowLegend = 1
+Radian = 1
+
+[Func1]
+FuncType = 0
+y = 1000*x/(x^2+5^2)^(4/2)
+Visible = 0
+LegendText = 4th Point
+Color = clFuchsia
+
+[Func2]
+FuncType = 0
+y = 100*x/(x^2+5^2)^(3/2)
+LegendText = Squared Point
+Color = clRed
+
+[Func3]
+FuncType = 0
+y = 10*x/(x^2+5^2)
+LegendText = Inverse Point
+Color = clLime
+
+[Func4]
+FuncType = 0
+y = 1*x/(x^2+5^2)^(1/2)
+LegendText = Constant Point
+Color = clBlue
+
+[Func5]
+FuncType = 0
+y = .1*x
+Visible = 0
+LegendText = 0th Point
+Color = clAqua
+
+[Data]
+TextLabelCount = 0
+FuncCount = 5
+PointSeriesCount = 0
+ShadeCount = 0
+RelationCount = 0
+OleObjectCount = 0
+
