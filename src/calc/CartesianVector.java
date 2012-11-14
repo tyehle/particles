@@ -79,12 +79,13 @@ public class CartesianVector implements Cloneable
      */
     public void rotate(double angle)
     {
-        // 9.35% faster than using both trig operations and 1% faster than using sin
+        // 9.35% faster than using both trig operations and
+        // 1% fasterthan using sin
         double cos = Math.cos(angle);
         double sin = Math.sin(angle); // Math.sqrt(1 - cos * cos); removes the sign
 
         double xTemp = x * cos - y * sin;
-        y = y * cos + xTemp * sin;
+        y = y * cos + x * sin;
         x = xTemp;
     }
 
