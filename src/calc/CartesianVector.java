@@ -94,6 +94,17 @@ public class CartesianVector implements Cloneable
         this.x += v.x;
     }
     
+    /**
+     * Does the euclidian inner product of this vector and the given vector.  
+     * This operation does not change the value of either vector.
+     * @param v The second operand of the dot product
+     * @return The dot product of this vector and the given vector
+     */
+    public double dot(CartesianVector v)
+    {
+        return x*v.x + y*v.y;
+    }
+    
     @Override
     public String toString()
     {
