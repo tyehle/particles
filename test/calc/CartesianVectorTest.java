@@ -148,10 +148,13 @@ public class CartesianVectorTest
     {
         v.scaleX(2);
         assertEquals(2, v.x, 0);
+        assertEquals(1, v.y, 0);
         v.scaleX(.5);
         assertEquals(1, v.x, 0);
-        v.scale(-5.3);
+        assertEquals(1, v.y, 0);
+        v.scaleX(-5.3);
         assertEquals(-5.3, v.x, 0);
+        assertEquals(1, v.y, 0);
     }
 
     /**
@@ -162,10 +165,13 @@ public class CartesianVectorTest
     {
         v.scaleY(2);
         assertEquals(2, v.y, 0);
+        assertEquals(1, v.x, 0);
         v.scaleY(.5);
         assertEquals(1, v.y, 0);
+        assertEquals(1, v.x, 0);
         v.scaleY(-5.3);
         assertEquals(-5.3, v.y, 0);
+        assertEquals(1, v.x, 0);
     }
 
     /**
@@ -197,7 +203,7 @@ public class CartesianVectorTest
         v.rotate(Math.PI / 2);
         assertEquals(Math.sqrt(2), v.getMagnitude(), 0.0000000001);
         assertEquals(-1, v.x, 0.0000000001);
-        assertEquals(1, v.y, 0.0000000001);
+        assertEquals(1, v.y, 0.000000001);
         assertEquals(Math.PI * 3.0 /4.0, v.getAngle(), 0.0000000001);
         v.rotate(Math.PI / -4);
         assertEquals(0, v.x, 0.0000000001);
@@ -220,6 +226,33 @@ public class CartesianVectorTest
         v.add(w);
         assertEquals(-1, v.x, 0);
         assertEquals(3.5, v.y, 0);
+    }
+    
+    /**
+     * Test of the dot method, of class CartesianVector.
+     */
+    @Test
+    public void testDot()
+    {
+        CartesianVector w = new CartesianVector(2, 3);
+        assertEquals(2, v.dot(v), 0);
+        assertEquals(13, w.dot(w), 0);
+        assertEquals(5, v.dot(w), 0);
+        
+        w.x = 0;
+        assertEquals(3, v.dot(w), 0);
+        
+        w.y = 0;
+        assertEquals(0, v.dot(w), 0);
+        
+        w.x = 2;
+        assertEquals(2, v.dot(w), 0);
+        
+        w.x = -2;
+        assertEquals(-2, v.dot(w), 0);
+        
+        w.y = -3;
+        assertEquals(-5, v.dot(w), 0);
     }
 
     /**
