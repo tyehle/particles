@@ -17,7 +17,7 @@ import org.junit.runners.Suite;
 @RunWith(Suite.class)
 @Suite.SuiteClasses(
 {
-    calc.CalcSuite.class, ui.UiSuite.class, util.UtilSuite.class
+    calc.CalcSuite.class, ui.UiSuite.class
 })
 public class RootSuite
 {
