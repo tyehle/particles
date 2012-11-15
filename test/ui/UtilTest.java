@@ -4,9 +4,6 @@
  */
 package ui;
 
-import java.awt.Component;
-import java.awt.Frame;
-import java.awt.Graphics2D;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import org.junit.After;
@@ -53,14 +50,9 @@ public class UtilTest
     @Test
     public void testGetImageNoPreview()
     {
-        System.out.println("getImageNoPreview");
-        Component parent = null;
-        File rootDir = null;
-        BufferedImage expResult = null;
-        BufferedImage result = Util.getImageNoPreview(parent, rootDir);
-        assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        BufferedImage result = Util.getImageNoPreview(null, new File("."));
+        // if this does not throw any exceptions that is fine.
+        // I really do not want to write gui tests
     }
 
     /**
@@ -69,25 +61,8 @@ public class UtilTest
     @Test
     public void testGetImageWithPreview()
     {
-        System.out.println("getImageWithPreview");
-        Frame parent = null;
-        BufferedImage expResult = null;
-        BufferedImage result = Util.getImageWithPreview(parent);
-        assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
-    }
-
-    /**
-     * Test of setBestLAF method, of class Util.
-     */
-    @Test
-    public void testSetBestLAF()
-    {
-        System.out.println("setBestLAF");
-        Util.setBestLAF();
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        BufferedImage result = Util.getImageWithPreview(null);
+        // Ditto here.  Just check for any exceptions that could be thrown
     }
 
     /**
@@ -96,26 +71,16 @@ public class UtilTest
     @Test
     public void testScaleImage()
     {
-        System.out.println("scaleImage");
-        BufferedImage in = null;
-        double factor = 0.0;
-        BufferedImage expResult = null;
+        BufferedImage in = new BufferedImage(300, 200, BufferedImage.TYPE_INT_ARGB);
+        double factor = .5;
         BufferedImage result = Util.scaleImage(in, factor);
-        assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
-    }
-
-    /**
-     * Test of setHighRenderingHints method, of class Util.
-     */
-    @Test
-    public void testSetHighRenderingHints()
-    {
-        System.out.println("setHighRenderingHints");
-        Graphics2D g = null;
-        Util.setHighRenderingHints(g);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        assertEquals(150, result.getWidth(), 1);
+        assertEquals(100, result.getHeight(), 1);
+        
+        in = new BufferedImage(300, 200, BufferedImage.TYPE_INT_ARGB);
+        factor = 2;
+        result = Util.scaleImage(in, factor);
+        assertEquals(600, result.getWidth(), 1);
+        assertEquals(400, result.getHeight(), 1);
     }
 }
