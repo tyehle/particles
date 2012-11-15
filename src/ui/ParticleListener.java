@@ -6,7 +6,7 @@ import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 
 /**
- *
+ * Deals with all mouse and key events in the particle frame
  * @author Tobin
  * @version 4.1
  */
