@@ -18,9 +18,7 @@ import org.junit.runners.Suite;
 @RunWith(Suite.class)
 @Suite.SuiteClasses(
 {
-    ui.PointCreationDialogTest.class, ui.PointCreationPanelTest.class,
-    ui.ParticleListenerTest.class, ui.ChargedPointCreationPanelTest.class,
-    ui.ParticleFrameTest.class, ui.UtilTest.class, ui.NumberFieldTest.class,
+    ui.UtilTest.class, ui.NumberFieldTest.class,
     ui.DoubleDocumentFilterTest.class
 })
 public class UiSuite
