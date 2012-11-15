@@ -52,20 +52,20 @@ public class ParticleFrame extends JFrame
         }
         
         GraphicsThread g = new GraphicsThread(generateParticles(image, frame,
-                new Dimension(frame.getWidth()/16, frame.getHeight()/16), 8000), frame);
+                new Dimension(frame.getWidth()/3, frame.getHeight()/3), 2000), frame);
         frame.setVisible(true);
         frame.createBufferStrategy(2);
         
         g.start();
         
-//        g.tempPoints.add(new SquaredPoint(.00000001, 15, frame.getRandomScreenPosition(), true));
-//        g.tempPoints.add(new SquaredPoint(.00000001, 15, frame.getRandomScreenPosition(), true));
+        g.tempPoints.add(new SquaredPoint(.00000001, 15, frame.getRandomScreenPosition(), true));
+        g.tempPoints.add(new SquaredPoint(.00000001, 15, frame.getRandomScreenPosition(), true));
 //        g.tempPoints.add(new SquaredPoint(.00000001, 15, frame.getRandomScreenPosition(), true));
         
         // (461.56412902425024, 73.39790019464907)
         // (997.6251239680996, 679.1726502536895)
-        g.tempPoints.add(new SquaredPoint(.00000001, 15, new CartesianVector(461.56412902425024, 73.39790019464907), true));
-        g.tempPoints.add(new SquaredPoint(.00000001, 15, new CartesianVector(997.6251239680996, 679.1726502536895), true));
+//        g.tempPoints.add(new SquaredPoint(.00000001, 15, new CartesianVector(461.56412902425024, 73.39790019464907), true));
+//        g.tempPoints.add(new SquaredPoint(.00000001, 15, new CartesianVector(997.6251239680996, 679.1726502536895), true));
         
 //        g.tempPoints.add(new SquaredPoint(.00000001, 15, new CartesianVector(frame.getWidth()*3/16, frame.getHeight()*3/8), true));
 //        g.tempPoints.add(new SquaredPoint(.00000001, 15, new CartesianVector(frame.getWidth()*13/16, frame.getHeight() / 2), true));
