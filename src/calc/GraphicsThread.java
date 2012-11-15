@@ -1,6 +1,5 @@
 package calc;
 
-import java.awt.Color;
 import java.awt.Graphics2D;
 import java.awt.Image;
 import java.awt.RenderingHints;
@@ -43,7 +42,7 @@ public class GraphicsThread extends Thread
     /**The background color for the program*/
     private final int backgroundColor = 255 << 24;
     private final double fade = 1;
-    private final double particleTranceparency = 10;
+    private final double particleTranceparency = 60;
     
     /**The list of stationary points that affect the particles*/
     protected ArrayList<StationaryPoint> stationaryPoints;
