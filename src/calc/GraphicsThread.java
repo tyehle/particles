@@ -3,11 +3,15 @@ package calc;
 import java.awt.Graphics2D;
 import java.awt.Image;
 import java.awt.RenderingHints;
+import java.awt.image.BufferedImage;
 import java.awt.image.MemoryImageSource;
+import java.io.File;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.LinkedList;
+import javax.imageio.ImageIO;
 import ui.ParticleFrame;
 
 /**
@@ -39,10 +43,12 @@ public class GraphicsThread extends Thread
     /**The image updated by the memory image source and drawn on the frame*/
     private Image sourceImage;
     
+    private int frameCount;
+    
     /**The background color for the program*/
     private final int backgroundColor = 255 << 24;
-    private final double fade = 1;
-    private final double particleTranceparency = 60;
+    private final double fade = 2;
+    private final double particleTranceparency = 20;
     
     /**The list of stationary points that affect the particles*/
     protected ArrayList<StationaryPoint> stationaryPoints;
@@ -84,11 +90,13 @@ public class GraphicsThread extends Thread
     @Override
     public void run()
     {
+        frameCount = 0;
         while (true)
         {
-            updateParticles(.08);
+            updateParticles(.02);
             drawGraphics();
             syncStationaryPoints();
+            frameCount++;
         }
     }
 
@@ -178,6 +186,16 @@ public class GraphicsThread extends Thread
 //        g.fillRect(0, 0, frame.getWidth(), frame.getHeight());
 //        System.out.println(sourceImage.getHeight(null)+", "+sourceImage.getWidth(null));
         g.drawImage(sourceImage, 0, 0, null);
+        
+        // write frames to file
+        try
+        {
+            BufferedImage toFile = new BufferedImage(sourceImage.getWidth(null),
+                    sourceImage.getHeight(null), BufferedImage.TYPE_INT_ARGB);
+            toFile.getGraphics().drawImage(sourceImage, 0, 0, null);
+            ImageIO.write(toFile, "png", new File("..\\video\\"+frameCount+".png"));
+        }
+        catch (IOException e) { }
         
 //        g.setColor(Color.RED);
 //        for(StationaryPoint p : stationaryPoints)

@@ -149,8 +149,8 @@ public class Util
     public static BufferedImage scaleImage(BufferedImage in, double factor)
     {
         // Create the new buffered image at the right size
-        BufferedImage out = new BufferedImage((int)(in.getWidth()*factor)+1,
-                (int)(in.getHeight()*factor)+1, in.getType());
+        BufferedImage out = new BufferedImage((int)(in.getWidth()*factor),
+                (int)(in.getHeight()*factor), in.getType());
         // We will draw on this to get the new image
         Graphics2D g = out.createGraphics();
         setHighRenderingHints(g);
