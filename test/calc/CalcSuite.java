@@ -21,7 +21,7 @@ import org.junit.runners.Suite;
     calc.StationaryPointTest.class, calc.GraphicsThreadTest.class,
     calc.ConstantPointTest.class, calc.CartesianVectorTest.class,
     calc.InversePointTest.class, calc.SquaredPointTest.class,
-    calc.ParticleTest.class, calc.PreciseColorTest.class,
+    calc.ThreadingTest.class, calc.PreciseColorTest.class,
     calc.GeneralPointTest.class
 })
 public class CalcSuite

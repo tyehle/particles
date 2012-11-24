@@ -93,7 +93,7 @@ public class GraphicsThread extends Thread
         frameCount = 0;
         while (true)
         {
-            updateParticles(.02);
+            updateParticles(.08);
             drawGraphics();
             syncStationaryPoints();
             frameCount++;

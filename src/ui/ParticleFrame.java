@@ -78,6 +78,28 @@ public class ParticleFrame extends JFrame
 //        g.tempPoints.add(new SquaredPoint(.00000001, 15, new CartesianVector(frame.getWidth()*13/16, frame.getHeight() / 2), true));
     }
     
+    private static Particle[] generateParticles2(BufferedImage image, ParticleFrame frame, Dimension target, int numParticles, int padSize)
+    {
+        double factor = Math.max(target.width/(double)image.getWidth(), target.height/(double)image.getHeight())/padSize;
+        image = Util.scaleImage(image, factor);
+        
+        Particle[] particles = new Particle[image.getWidth() * image.getHeight()];
+        
+        for (int h = 0; h < image.getHeight(); h++)
+        {
+            for (int w = 0; w < image.getWidth(); w++)
+            {
+                int color = image.getRGB(w, h);
+                int x = (frame.getWidth() - image.getWidth()) / 2 + w;
+                int y = (frame.getHeight() - image.getHeight()) / 2 + h;
+                Particle p = new Particle(color + (2 << 24), new CartesianVector(x, y));
+                particles[h*image.getWidth() + w] = p;
+            }
+        }
+                
+        return null;
+    }
+    
     private static Particle[] generateParticles(BufferedImage image, ParticleFrame frame, Dimension target, int numParticles)
     {
         System.out.println("generating image");
